@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zaatar Thattukada Restaurant | Authentic Taste</title>
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+  <!-- AOS Animation Library CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= Navigation ================= -->
+  <header>
+    <nav class="navbar" data-aos="fade-down" data-aos-duration="1000">
+      <a href="#home" class="logo">Zaatar<span> Thattukada</span></a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-item">Home</a></li>
+        <li><a href="#menu" class="nav-item">Our Menu</a></li>
+        <li><a href="#about" class="nav-item">About Us</a></li>
+        <li><a href="#contact" class="nav-item">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="cart-trigger-btn" id="openCartBtn" aria-label="View Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-count-badge" id="cartCount">0</span>
+        </button>
+        <button class="mobile-toggle" id="menuToggle" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= Hero Section ================= -->
+  <section class="hero" id="home">
+    <div class="hero-content" data-aos="fade-right" data-aos-duration="1200">
+      <p class="subtitle">WELCOME TO ZAATAR THATTUKADA</p>
+      <h1>Authentic Taste.<br><span>Unforgettable Flavour.</span></h1>
+      <p>
+        Savor our signature charcoal grilled chicken, juicy artisan burgers, authentic Malabar biryani, and beloved Kerala thattukada delicacies made fresh daily.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#menu" class="btn btn-primary">Explore Our Menu</a>
+        <a href="#contact" class="btn btn-outline">Find Our Location</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Menu Section ================= -->
+  <section class="menu-section" id="menu">
+    <div class="section-header" data-aos="fade-up">
+      <p class="section-subtitle">FRESH & DELICIOUS</p>
+      <h2>Our Special Menu</h2>
+      <p class="section-description">
+        Great food, bold spices, authentic street recipes, and honest prices.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="category-filters">
+        <button class="filter-btn active" data-filter="all">All Items</button>
+        <button class="filter-btn" data-filter="grills">Grills & BBQ</button>
+        <button class="filter-btn" data-filter="thattukada">Thattukada Specials</button>
+        <button class="filter-btn" data-filter="burgers">Burgers & Wraps</button>
+      </div>
+    </div>
+
+    <div class="menu-container" id="menuGrid">
+      <!-- 1. Grilled Chicken -->
+      <div class="menu-card" data-category="grills" data-aos="fade-up">
+        <div class="card-img-wrapper" onclick="openDishModal('Grilled Chicken', 'AED 28', 'Juicy tender half-chicken marinated in authentic Arabian Zaatar and signature spices, slow-grilled over charcoal embers to perfection.', 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=700&q=80')">
+          <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=700&q=80" alt="Grilled Chicken" loading="lazy">
+          <span class="quick-view-badge"><i class="fa-solid fa-eye"></i> Quick View</span>
+        </div>
+        <div class="menu-info">
+          <h3>Grilled Chicken</h3>
+          <p>Juicy chicken grilled with special house herbs and spices.</p>
+          <div class="price-row">
+            <span class="price">AED 28</span>
+            <button class="order-btn" onclick="addToCart('Grilled Chicken', 28, 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=700&q=80')">
+              <i class="fa-solid fa-plus"></i> Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Beef Burger -->
+      <div class="menu-card" data-category="burgers" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-img-wrapper" onclick="openDishModal('Beef Burger', 'AED 25', 'Smoky charbroiled Angus beef patty stacked with melted cheddar, crisp lettuce, ripe tomatoes, caramelized onions, and our secret house burger sauce.', 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80')">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80" alt="Beef Burger" loading="lazy">
+          <span class="quick-view-badge"><i class="fa-solid fa-eye"></i> Quick View</span>
+        </div>
+        <div class="menu-info">
+          <h3>Beef Burger</h3>
+          <p>Juicy beef patty with melted cheese and fresh vegetables.</p>
+          <div class="price-row">
+            <span class="price">AED 25</span>
+            <button class="order-btn" onclick="addToCart('Beef Burger', 25, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80')">
+              <i class="fa-solid fa-plus"></i> Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Chicken Biryani -->
+      <div class="menu-card" data-category="thattukada" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-img-wrapper" onclick="openDishModal('Chicken Biryani', 'AED 13', 'Traditional Thalassery style fragrant kaima rice cooked in rich ghee, served with succulent spiced chicken masala, pickle, and raita.', 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80')">
+          <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80" alt="Chicken Biryani" loading="lazy">
+          <span class="quick-view-badge"><i class="fa-solid fa-eye"></i> Quick View</span>
+        </div>
+        <div class="menu-info">
+          <h3>Chicken Biryani</h3>
+          <p>Fragrant spiced rice layered with tender braised chicken.</p>
+          <div class="price-row">
+            <span class="price">AED 13</span>
+            <button class="order-btn" onclick="addToCart('Chicken Biryani', 13, 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=700&q=80')">
+              <i class="fa-solid fa-plus"></i> Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Chicken Shawarma -->
+      <div class="menu-card" data-category="burgers" data-aos="fade-up">
+        <div class="card-img-wrapper" onclick="openDishModal('Chicken Shawarma', 'AED 18', 'Tender rotisserie-sliced chicken wrapped in fresh pita with authentic garlic toum, French fries, and crunchy pickled cucumbers.', 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=700&q=80')">
+          <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=700&q=80" alt="Chicken Shawarma" loading="lazy">
+          <span class="quick-view-badge"><i class="fa-solid fa-eye"></i> Quick View</span>
+        </div>
+        <div class="menu-info">
+          <h3>Chicken Shawarma</h3>
+          <p>Lebanese wrap loaded with chicken and creamy garlic sauce.</p>
+          <div class="price-row">
+            <span class="price">AED 18</span>
+            <button class="order-btn" onclick="addToCart('Chicken Shawarma', 18, 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=700&q=80')">
+              <i class="fa-solid fa-plus"></i> Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Mixed Grill Platter -->
+      <div class="menu-card" data-category="grills" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-img-wrapper" onclick="openDishModal('Mixed Grill Platter', 'AED 36', 'An extravagant assortment of charcoal-grilled shish tawook, beef seekh kebabs, lamb tikka, and chicken tikka served with Arabic bread & hummus.', 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80')">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80" alt="Mixed Grill Platter" loading="lazy">
+          <span class="quick-view-badge"><i class="fa-solid fa-eye"></i> Quick View</span>
+        </div>
+        <div class="menu-info">
+          <h3>Mixed Grill</h3>
+          <p>A hearty assortment of grilled shish kebabs and chicken tikka.</p>
+          <div class="price-row">
+            <span class="price">AED 36</span>
+            <button class="order-btn" onclick="addToCart('Mixed Grill', 36, 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80')">
+              <i class="fa-solid fa-plus"></i> Add
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Crispy Fried Chicken -->
+      <div class="menu-card" data-category="thattukada" data-aos="fade-up" data-aos-delay="200">
+        <div class="card-img-wrapper" onclick="openDishModal('Crispy Fried Chicken', 'AED 18', 'Double-breaded ultra crunchy fried chicken infused with regional chili peppers and served with hot garlic dipping sauce.', 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=700&q=80')">
+          <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=700&q=80" alt="Crispy Fried Chicken" loading="lazy">
+          <span class="quick-view-badge"><i class="fa-solid fa-eye"></i> Quick View</span>
+        </div>
+        <div class="menu-info">
+          <h3>Crispy Fried Chicken</h3>
+          <p>Golden, ultra-crunchy seasoned chicken pieces.</p>
+          <div class="price-row">
+            <span class="price">AED 18</span>
+            <button class="order-btn" onclick="addToCart('Crispy Fried Chicken', 18, 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=700&q=80')">
+              <i class="fa-solid fa-plus"></i> Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= About Section ================= -->
+  <section class="about-section" id="about">
+    <div class="about-image" data-aos="fade-right">
+      <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80" alt="Restaurant Kitchen Food" loading="lazy">
+    </div>
+
+    <div class="about-content" data-aos="fade-left">
+      <p class="section-subtitle">OUR STORY</p>
+      <h2>Good Food, Great Memories</h2>
+      <p>
+        Welcome to Zaatar Thattukada Restaurant, where traditional Middle-Eastern spices meet the spirited, fiery flavours of Kerala street thattukadas. Founded on an uncompromising passion for freshness, every plate is prepared hot to order.
+      </p>
+      <div class="owner-badge">
+        <i class="fa-solid fa-user-tie"></i>
+        <div>
+          <span class="label">Proprietor</span>
+          <strong>Abdul Razak</strong>
+        </div>
+      </div>
+      <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- ================= Contact Section ================= -->
+  <section class="contact-section" id="contact">
+    <p class="section-subtitle">WE ARE READY TO SERVE YOU</p>
+    <h2>Visit or Order Online</h2>
+    <p>Craving hot food? Drop by our restaurant or place an instant order via WhatsApp.</p>
+
+    <div class="contact-card" data-aos="zoom-in">
+      <div class="card-header-icon">
+        <i class="fa-solid fa-utensils"></i>
+      </div>
+      <h3>Zaatar Thattukada Restaurant</h3>
+      <p class="owner-name"><i class="fa-solid fa-id-card"></i> <strong>Owner:</strong> Abdul Razak</p>
+      <p class="phone-line"><i class="fa-solid fa-phone"></i> <strong>Phone:</strong> +971 50 360 9647</p>
+      
+      <div class="contact-actions">
+        <a href="tel:0503609647" class="btn btn-primary"><i class="fa-solid fa-phone-volume"></i> Call Now</a>
+        <a href="https://wa.me/971503609647?text=Hi%20Zaatar%20Thattukada,%20I%20would%20like%20to%20place%20an%20order." 
+           class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer>
+    <p>© 2026 Zaatar Thattukada Restaurant. All Rights Reserved.</p>
+    <p>Crafted with <i class="fa-solid fa-heart" style="color: #e63946;"></i> for authentic food lovers.</p>
+  </footer>
+
+  <!-- ================= Sliding Cart Drawer ================= -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3><i class="fa-solid fa-bag-shopping"></i> Your Order</h3>
+      <button class="close-drawer-btn" id="closeCartBtn">&times;</button>
+    </div>
+
+    <div class="cart-items-container" id="cartItemsList">
+      <!-- Items dynamically populated via JavaScript -->
+      <div class="empty-cart-state">
+        <i class="fa-solid fa-bowl-food"></i>
+        <p>Your tray is empty.</p>
+        <span>Add some delicious items from our menu!</span>
+      </div>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal-row">
+        <span>Estimated Total</span>
+        <strong id="cartSubtotal">AED 0</strong>
+      </div>
+      <button class="btn btn-whatsapp w-100" id="checkoutWhatsappBtn" disabled>
+        <i class="fa-brands fa-whatsapp"></i> Send Order to WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- ================= Dish Details Modal ================= -->
+  <div class="modal-backdrop" id="dishModal">
+    <div class="modal-card">
+      <button class="close-modal-btn" onclick="closeDishModal()">&times;</button>
+      <img id="modalImg" src="" alt="Dish Preview">
+      <div class="modal-content">
+        <div class="modal-head">
+          <h3 id="modalTitle">Dish Title</h3>
+          <span class="modal-price" id="modalPrice">AED 0</span>
+        </div>
+        <p id="modalDesc">Detailed description here.</p>
+        <button class="btn btn-primary w-100" id="modalAddBtn">
+          <i class="fa-solid fa-plus"></i> Add to Order
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-notice" id="toastNotice">Item added to order!</div>
+
+  <!-- AOS Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Custom JS File -->
+  <script src="script.js"></script>
+</body>
+</html>
